@@ -1,0 +1,121 @@
+{
+  "app_name": "Sai Vandan Realty CRM",
+  "project_context": "Sales & Operations CRM for Sai Vandan Complex - 18 module unified real estate system",
+  "theme": {
+    "mode": "dark-first with light-mode toggle",
+    "colors": {
+      "background": "#0B1120",
+      "background_secondary": "#0F172A",
+      "card_surface": "#1E293B",
+      "card_surface_hover": "#334155",
+      "card_border": "#334155",
+      "primary": "#3B82F6",
+      "primary_hover": "#2563EB",
+      "primary_foreground": "#FFFFFF",
+      "secondary_surface": "#1E293B",
+      "secondary_foreground": "#E2E8F0",
+      "text_main": "#F8FAFC",
+      "text_muted": "#94A3B8",
+      "text_subtle": "#64748B",
+      "status": {
+        "success": "#10B981",
+        "warning": "#F59E0B",
+        "danger": "#EF4444",
+        "info": "#06B6D4",
+        "neutral": "#64748B"
+      }
+    }
+  },
+  "typography": {
+    "font_family": "Plus Jakarta Sans, Inter, system-ui, sans-serif",
+    "font_size": {
+      "hero_title": "text-2xl md:text-3xl font-bold tracking-tight text-white",
+      "section_title": "text-lg font-semibold text-white",
+      "card_title": "text-base font-semibold text-slate-100",
+      "kpi_number": "text-2xl md:text-3xl font-extrabold text-white tracking-tight",
+      "body": "text-sm text-slate-300",
+      "caption": "text-xs text-slate-400 font-medium",
+      "label_uppercase": "text-[11px] font-bold uppercase tracking-wider text-slate-400"
+    }
+  },
+  "layout_architecture": {
+    "top_bar": {
+      "height": "h-16",
+      "background": "bg-[#0F172A]/90 backdrop-blur-md border-b border-slate-800",
+      "elements": [
+        "Brand Logo & Name ('Sai Vandan Realty') + Tagline ('Sales & Operations')",
+        "Breadcrumb trail showing active module path",
+        "Global search input ('Search current page...')",
+        "Dark / Light theme toggle button",
+        "Notification bell badge button with unread count indicator",
+        "User profile avatar pill with initials badge + role badge (e.g., 'SV · Agent')"
+      ]
+    },
+    "sidebar": {
+      "width": "w-64",
+      "background": "bg-[#0B1120] border-r border-slate-800/80",
+      "active_item_style": "bg-blue-600 text-white font-medium rounded-xl shadow-lg shadow-blue-500/20 px-3 py-2.5 flex items-center gap-3 transition-all",
+      "inactive_item_style": "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 rounded-xl px-3 py-2.5 flex items-center gap-3 transition-all"
+    },
+    "hero_banner": {
+      "style": "bg-gradient-to-r from-blue-900/40 via-slate-900 to-slate-900 border border-blue-500/20 rounded-2xl p-6 relative overflow-hidden",
+      "badge": "inline-block px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-blue-500/20 text-blue-400 border border-blue-500/30 mb-2",
+      "actions": "Top right button group: 1 secondary outlined button + 1 primary filled blue button"
+    },
+    "kpi_grid": {
+      "grid_cols": "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4",
+      "card_style": "bg-[#1E293B]/90 border border-slate-800 hover:border-slate-700 rounded-2xl p-5 shadow-sm transition-all flex flex-col justify-between"
+    },
+    "list_detail_split": {
+      "pattern": "Searchable, sortable, filterable list on the left (40% width) with '+ Add New' button, and comprehensive form/detail panel on the right (60% width)",
+      "left_panel": "bg-[#0F172A] border border-slate-800 rounded-2xl p-4 flex flex-col gap-3 h-[calc(100vh-140px)] overflow-y-auto",
+      "right_panel": "bg-[#1E293B] border border-slate-800 rounded-2xl p-6 flex flex-col gap-4 h-[calc(100vh-140px)] overflow-y-auto"
+    }
+  },
+  "modules": [
+    "Dashboard",
+    "Client Enquiry",
+    "Lead Management",
+    "Follow-up",
+    "Property",
+    "Site Visit",
+    "Booking",
+    "Sales",
+    "Document & Loan",
+    "Payments",
+    "Possession",
+    "Customer Support",
+    "Vendors",
+    "Employees & Payroll",
+    "Petty Cash",
+    "Accounts",
+    "Settings"
+  ],
+  "image_urls": {
+    "hero_property": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "building_facade": "https://images.unsplash.com/photo-1580216643062-cf460548a66a?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "interior_sample": "https://images.unsplash.com/photo-1564078516393-cf04bd966897?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "living_room": "https://images.pexels.com/photos/13722886/pexels-photo-13722886.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  "testing_guidelines": {
+    "attribute": "data-testid",
+    "convention": "kebab-case, role-based naming for buttons, inputs, tabs, lists, and metrics",
+    "required_test_ids": [
+      "topbar-search-input",
+      "theme-toggle-button",
+      "user-profile-badge",
+      "sidebar-nav-item-{module-id}",
+      "kpi-card-{kpi-key}",
+      "list-add-new-button",
+      "list-search-input",
+      "list-item-{id}",
+      "detail-form-submit-button"
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Ensure all 18 modules adopt the exact same dark navy color palette (#0B1120 background, #1E293B cards, #3B82F6 primary accents).",
+    "Maintain list-detail layout consistency across all data management modules.",
+    "Add data-testid attributes to all interactive components for test automation.",
+    "Support dark and light mode toggle cleanly while defaulting to dark mode."
+  ]
+}
