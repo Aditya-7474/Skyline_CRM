@@ -186,25 +186,25 @@ public class RelationalStore {
 
     private static Map<String, LinkedHashMap<String, String>> definitions() {
         Map<String, LinkedHashMap<String, String>> all = new LinkedHashMap<>();
-        all.put("leads", cols("name", "customer_name", "mobile", "email", "status", "qualification_status", "budget", "loan_required", "preferred_location", "flat_type", "timeline", "purpose", "city", "configuration", "source", "assigned_to", "interested_property", "notes"));
-        all.put("follow_ups", cols("lead_id", "type", "date", "time", "next_date", "remarks", "executive_id", "executive_name"));
-        all.put("units", cols("unit_number", "flat_type", "wing", "floor", "carpet_area", "built_up_area", "price", "parking", "facing", "status"));
-        all.put("site_visits", cols("lead_id", "lead_name", "visit_date", "visit_time", "pickup_required", "status", "feedback", "executive_id", "executive_name"));
-        all.put("negotiations", cols("lead_id", "customer_name", "unit_id", "offered_price", "discount", "special_offer", "approval_status", "remarks", "status"));
-        all.put("bookings", cols("lead_id", "customer_name", "unit_id", "unit_number", "flat_type", "floor", "booking_amount", "total_price", "booking_date", "status"));
-        all.put("payments", cols("booking_id", "customer_name", "installment_type", "amount", "payment_date", "mode", "reference", "remarks"));
-        all.put("documents", cols("customer_id", "customer_name", "pan", "aadhaar", "passport_photo", "address_proof", "income_proof", "bank_statement", "remarks"));
+        all.put("leads", cols("name", "customer_name", "mobile", "customer_mobile", "email", "customer_email", "status", "qualification_status", "budget", "loan_required", "preferred_location", "flat_type", "timeline", "purpose", "city", "project_name", "configuration", "source", "assigned_to", "interested_property", "notes"));
+        all.put("follow_ups", cols("lead_id", "lead_name", "customer_name", "mobile", "customer_mobile", "customer_email", "type", "date", "time", "next_date", "status", "remarks", "executive_id", "executive_name"));
+        all.put("units", cols("unit_number", "flat_type", "wing", "floor", "carpet_area", "built_up_area", "price", "parking", "amenities", "facing", "status"));
+        all.put("site_visits", cols("lead_id", "lead_name", "customer_name", "mobile", "customer_mobile", "customer_email", "project_name", "visit_date", "visit_time", "pickup_required", "status", "feedback", "executive_id", "executive_name"));
+        all.put("negotiations", cols("lead_id", "lead_name", "customer_name", "mobile", "customer_mobile", "customer_email", "project_name", "unit_id", "unit_number", "unit_name", "offered_price", "discount", "special_offer", "payment_mode", "payment_reference", "approval_status", "remarks", "status"));
+        all.put("bookings", cols("lead_id", "lead_name", "customer_name", "mobile", "customer_mobile", "customer_email", "project_name", "unit_id", "unit_number", "unit_name", "flat_type", "floor", "booking_amount", "total_price", "booking_date", "status"));
+        all.put("payments", cols("booking_id", "lead_id", "lead_name", "customer_name", "mobile", "customer_mobile", "customer_email", "project_name", "unit_number", "unit_name", "installment_type", "total_cost", "amount", "pending_amount", "due_date", "payment_date", "mode", "reference", "remarks"));
+        all.put("documents", cols("customer_id", "customer_name", "pan", "aadhaar", "passport_photo", "address_proof", "income_proof", "bank_statement", "pan_path", "pan_filename", "pan_content_type", "pan_size", "aadhaar_path", "aadhaar_filename", "aadhaar_content_type", "aadhaar_size", "passport_photo_path", "passport_photo_filename", "passport_photo_content_type", "passport_photo_size", "address_proof_path", "address_proof_filename", "address_proof_content_type", "address_proof_size", "income_proof_path", "income_proof_filename", "income_proof_content_type", "income_proof_size", "bank_statement_path", "bank_statement_filename", "bank_statement_content_type", "bank_statement_size", "remarks"));
         all.put("loans", cols("customer_id", "customer_name", "bank_name", "loan_amount", "emi", "sanction_date", "status", "remarks"));
-        all.put("agreements", cols("booking_id", "customer_name", "agreement_number", "agreement_date", "status", "remarks"));
+        all.put("agreements", cols("booking_id", "lead_id", "lead_name", "customer_name", "mobile", "customer_mobile", "customer_email", "project_name", "unit_number", "unit_name", "agreement_number", "agreement_date", "stamp_duty", "registration_date", "registration_number", "agreement_value", "status", "remarks"));
         all.put("possessions", cols("booking_id", "customer_name", "unit_number", "final_inspection", "utility_connection", "key_handover", "possession_letter", "status", "handover_date"));
-        all.put("support_tickets", cols("customer_name", "unit_number", "type", "subject", "description", "status", "resolution"));
+        all.put("support_tickets", cols("customer_name", "mobile", "email", "unit_number", "type", "subject", "description", "status", "assigned_to", "resolution"));
         all.put("employees", cols("employee_code", "name", "department", "designation", "mobile", "email", "doj", "basic_salary", "hra", "allowances", "bank_account", "ifsc", "pan", "aadhaar", "pf_number", "esic_number"));
-        all.put("attendance", cols("employee_id", "employee_name", "date", "status", "check_in", "check_out", "remarks"));
-        all.put("salary_runs", cols("employee_id", "employee_name", "month", "basic", "gross", "deductions", "net", "status", "paid_date"));
+        all.put("attendance", cols("employee_id", "employee_name", "date", "status", "check_in", "check_out", "leave_type", "overtime_hours", "remarks"));
+        all.put("salary_runs", cols("employee_id", "employee_name", "month", "basic", "hra", "incentives", "commission", "bonus", "gross", "deductions", "pf", "esic", "professional_tax", "advance_recovery", "net", "status", "paid_date", "payment_mode"));
         all.put("vendors", cols("name", "company", "category", "gst", "pan", "contact_person", "mobile", "email", "bank_account", "ifsc", "address"));
         all.put("purchase_orders", cols("vendor_id", "vendor_name", "po_number", "po_date", "amount", "status", "description", "remarks"));
-        all.put("vendor_bills", cols("vendor_id", "vendor_name", "bill_number", "bill_date", "bill_amount", "paid_amount", "balance", "status", "due_date", "remarks"));
-        all.put("vendor_payments", cols("bill_id", "vendor_id", "vendor_name", "payment_date", "mode", "paid_amount", "utr", "bank", "remarks"));
+        all.put("vendor_bills", cols("vendor_id", "vendor_name", "bill_number", "invoice_number", "bill_date", "invoice_date", "bill_amount", "gst", "paid_amount", "balance", "status", "due_date", "remarks"));
+        all.put("vendor_payments", cols("bill_id", "bill_number", "vendor_id", "vendor_name", "vendor_mobile", "payment_date", "mode", "paid_amount", "balance_amount", "payment_status", "utr", "bank", "remarks"));
         all.put("petty_cash_entries", cols("date", "voucher_number", "category", "amount", "payment_mode", "employee_name", "requested_by", "approved_by", "description", "remarks"));
         all.put("unit_photos", cols("unit_id", "unit_number", "caption", "taken_at", "data_base64", "size"));
         return all;
@@ -216,9 +216,10 @@ public class RelationalStore {
 
     private static String sqlType(String name) {
         if (name.equals("floor")) return "INT";
-        if (Set.of("budget", "carpet_area", "built_up_area", "price", "booking_amount", "total_price", "offered_price", "discount", "amount", "loan_amount", "emi", "basic_salary", "hra", "allowances", "paid_amount", "bill_amount", "balance", "basic", "gross", "deductions", "net", "size").contains(name)) return "DECIMAL(18,2)";
+        if (Set.of("budget", "carpet_area", "built_up_area", "price", "booking_amount", "total_price", "offered_price", "discount", "amount", "total_cost", "pending_amount", "stamp_duty", "agreement_value", "loan_amount", "emi", "basic_salary", "hra", "allowances", "paid_amount", "balance", "balance_amount", "bill_amount", "gst", "basic", "incentives", "commission", "bonus", "gross", "deductions", "pf", "esic", "professional_tax", "advance_recovery", "net", "overtime_hours").contains(name)) return "DECIMAL(18,2)";
+        if (Set.of("pan_size", "aadhaar_size", "passport_photo_size", "address_proof_size", "income_proof_size", "bank_statement_size", "size").contains(name)) return "BIGINT";
         if (Set.of("loan_required", "pickup_required", "final_inspection", "utility_connection", "key_handover", "possession_letter").contains(name)) return "BOOLEAN";
-        if (Set.of("notes", "remarks", "feedback", "description", "resolution", "address", "data_base64", "special_offer").contains(name)) return "TEXT";
+        if (Set.of("notes", "remarks", "feedback", "description", "resolution", "address", "amenities", "data_base64", "special_offer").contains(name)) return "TEXT";
         return "VARCHAR(500)";
     }
 }

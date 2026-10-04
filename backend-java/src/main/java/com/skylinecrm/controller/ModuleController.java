@@ -41,18 +41,20 @@ public class ModuleController {
     }
 
     private String[] readRoles(String module) {
-        if (Set.of("documents", "loans", "agreements", "payments", "possessions", "support", "employees", "purchase-orders").contains(module)) return new String[]{"Admin"};
-        if (Set.of("vendors", "vendor-bills", "vendor-payments", "petty-cash").contains(module)) return new String[]{"Admin", "Employee"};
-        return new String[]{"Admin", "Employee", "Agent"};
+        if (Set.of("employees", "attendance", "salary-runs", "vendors", "vendor-bills", "vendor-payments", "purchase-orders", "petty-cash").contains(module)) return new String[]{"Admin"};
+        if (Set.of("leads", "followups", "site-visits", "bookings", "negotiations", "documents").contains(module)) return new String[]{"Admin", "Employee", "Agent"};
+        if (Set.of("units", "loans", "agreements", "payments", "support").contains(module)) return new String[]{"Admin", "Employee"};
+        return new String[]{"Admin"};
     }
     private String[] writeRoles(String module) {
-        if (Set.of("leads", "followups", "negotiations", "bookings").contains(module)) return new String[]{"Admin", "Employee", "Agent"};
-        if (Set.of("vendor-payments", "petty-cash").contains(module)) return new String[]{"Admin", "Employee"};
+        if (Set.of("leads", "followups", "site-visits", "bookings", "negotiations").contains(module)) return new String[]{"Admin", "Employee", "Agent"};
+        if (Set.of("documents", "loans", "agreements", "payments", "support", "units").contains(module)) return new String[]{"Admin", "Employee"};
         return new String[]{"Admin"};
     }
     private String[] deleteRoles(String module) {
-        if (Set.of("leads", "documents", "loans", "agreements", "payments", "possessions", "support", "employees", "vendors", "purchase-orders", "vendor-bills").contains(module)) return new String[]{"Admin"};
-        if (Set.of("vendor-payments", "petty-cash").contains(module)) return new String[]{"Admin", "Employee"};
-        return new String[]{"Admin", "Employee", "Agent"};
+        if (Set.of("employees", "attendance", "salary-runs", "vendors", "vendor-bills", "vendor-payments", "purchase-orders", "petty-cash", "possessions").contains(module)) return new String[]{"Admin"};
+        if (Set.of("leads", "followups", "site-visits", "bookings", "negotiations").contains(module)) return new String[]{"Admin", "Employee", "Agent"};
+        if (Set.of("documents", "loans", "agreements", "payments", "support", "units").contains(module)) return new String[]{"Admin", "Employee"};
+        return new String[]{"Admin"};
     }
 }
